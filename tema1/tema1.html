@@ -338,7 +338,7 @@ sample(1:10, 1)
 ```
 
 ```
-## [1] 10
+## [1] 3
 ```
 
 ---
@@ -410,7 +410,7 @@ a &lt;- gen2_1_100()
 ```
 
 ```
-## [1] 28 19
+## [1] 58 30
 ```
 
 ``` r
@@ -418,7 +418,7 @@ a
 ```
 
 ```
-## [1] 47
+## [1] 88
 ```
 
 ---
@@ -445,11 +445,11 @@ gen2_1_100()
 ```
 
 ```
-## [1]  2 98
+## [1] 63 78
 ```
 
 ```
-## [1] 100
+## [1] 141
 ```
 
 ---
@@ -462,11 +462,11 @@ gen2_1_100(10)
 ```
 
 ```
-##  [1] 14 82 25 25 39 30 25 98 85 65
+##  [1]  19  71  36 100  15   7  85   7  81  64
 ```
 
 ```
-## [1] 488
+## [1] 485
 ```
 
 
@@ -821,15 +821,7 @@ hora
 ```
 
 ```
-## [1] "2024-08-26 15:26:01 CEST"
-```
-
-``` r
-typeof(hora)
-```
-
-```
-## [1] "double"
+## [1] "2024-09-02 11:27:38 CEST"
 ```
 
 ``` r
@@ -890,7 +882,7 @@ milista
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 ## 
 ## [[3]]
-## [1] "2024-08-26 15:26:01 CEST"
+## [1] "2024-09-02 11:27:38 CEST"
 ```
 
 ---
@@ -1400,11 +1392,42 @@ ifelse(x%%2==0, "Par", "Impar")
 ```
 
 ```
-## [1] "Par"   "Par"   "Impar" "Impar" "Impar"
+## [1] "Impar" "Par"   "Par"   "Par"   "Impar"
 ```
 
 Con `if-else` esto daría error. 
 
+---
+## 1. Condicionales
+
+La generalización de `ifelse` a multiples condiciones es `case_when` de la librería `dplyr`.
+
+
+``` r
+case_when(
+  condicion1 ~ valor1,
+  condicion2 ~ valor2,
+  ...
+)
+```
+
+Por ejemplo
+
+
+``` r
+library(dplyr)
+x &lt;- c(3,4,5)
+case_when(
+  x == 3 ~ "es tres",
+  x == 4 ~ "es cuatro",
+  TRUE ~ "no es ni tres ni cuatro"
+)
+```
+
+```
+## [1] "es tres"                 "es cuatro"              
+## [3] "no es ni tres ni cuatro"
+```
 
 ---
 ## 2. Bucles

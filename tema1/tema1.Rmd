@@ -588,8 +588,6 @@ class(m)
 hora <- Sys.time()
 hora
 
-typeof(hora)
-
 class(hora)
 ```
 
@@ -939,6 +937,30 @@ ifelse(x%%2==0, "Par", "Impar")
 
 Con `if-else` esto daría error. 
 
+---
+## 1. Condicionales
+
+La generalización de `ifelse` a multiples condiciones es `case_when` de la librería `dplyr`.
+
+```{r eval=F}
+case_when(
+  condicion1 ~ valor1,
+  condicion2 ~ valor2,
+  ...
+)
+```
+
+Por ejemplo
+
+```{r}
+library(dplyr)
+x <- c(3,4,5)
+case_when(
+  x == 3 ~ "es tres",
+  x == 4 ~ "es cuatro",
+  TRUE ~ "no es ni tres ni cuatro"
+)
+```
 
 ---
 ## 2. Bucles
