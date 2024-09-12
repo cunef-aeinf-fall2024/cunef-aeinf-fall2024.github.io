@@ -85,7 +85,6 @@ La distribución se aproxima a una **distribución normal**.
 Utiliza la ayuda de la función `replicate()` para conocer su funcionamiento.
 Resuelve el Ejercicio 1 sin usar un bucle (si es que lo habías usado).
 
-
 ### Solución
 
 Definimos la función, esta vez sin bucles
@@ -232,5 +231,34 @@ p <- ggplot(results, aes(x=Partida, y=Ganancia_Acumulada)) +
 
 p
 ```
+
+
+## Ejercicio 8
+
+Escribe un código en R para estimar el valor de $\pi$ utilizando el método de Monte Carlo. El método consiste en generar puntos aleatorios en un cuadrado unitario y contar cuántos de ellos caen dentro de un cuarto de círculo inscrito en dicho cuadrado.
+
+1. Genera $N$ puntos aleatorios dentro de un cuadrado de lado 1, es decir, los puntos $(x, y)$ deben tener coordenadas $x$ y $y$ entre 0 y 1. Para ello, puedes usar la función `runif()`.
+
+2. Calcula el número de puntos que caen dentro del círculo. 
+
+3. Utiliza el número calculado en el apartado anterior y el número total de puntos generados para estimar el valor de $\pi$.
+
+¿Qué observas al aumentar el número de puntos generados?
+
+
+### Solución
+
+```{r}
+N <- 10000
+x <- runif(N)
+y <- runif(N)
+# Calcula cuántos puntos caen dentro del cuarto de círculo
+puntos_dentro <- sum(x^2 + y^2 <= 1)
+
+# Estima el valor de pi: área del cuarto de círculo (pi/4) por el área del cuadrado (1)
+pi_estimada <- (puntos_dentro / N) * 4
+
+```
+
 
 

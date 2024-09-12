@@ -1,7 +1,6 @@
 ---
 title: "Lab 01 - Programación en R"
 author: "Tu Nombre Aquí"
-date: "2024-02-02"
 output: html_document
 ---
 
@@ -74,4 +73,21 @@ p
 
 ## Ejercicio 7
 
-Repite los dos ejercicios anteriores pero esta vez evaluando cualquier otra estrategia  que se te ocurra. ¿Qué conclusión extraes?
+Repite los dos ejercicios anteriores pero esta vez evaluando cualquier otra estrategia que se te ocurra. ¿Qué conclusión extraes?
+
+## Ejercicio 8
+
+Escribe un código en R para estimar el valor de $\pi$ utilizando el método de Monte Carlo. El método consiste en generar puntos aleatorios en un cuadrado unitario y contar cuántos de ellos caen dentro de un cuarto de círculo inscrito en dicho cuadrado.
+
+1. Genera $N$ puntos aleatorios dentro de un cuadrado de lado 1, es decir, los puntos $(x, y)$ deben tener coordenadas $x$ y $y$ entre 0 y 1. Para ello, puedes usar la función `runif()`.
+
+2. Calcula el número de puntos que caen dentro del círculo. 
+
+3. Utiliza el número calculado en el apartado anterior y el número total de puntos generados para estimar el valor de $\pi$.
+
+¿Qué observas al aumentar el número de puntos generados?
+
+
+
+
+
