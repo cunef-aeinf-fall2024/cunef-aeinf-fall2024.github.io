@@ -80,10 +80,11 @@ Bienvenido al sitio web de la asignatura de **Análisis y Explotación de la Inf
 ### Lab 01 - Programación en R 
   - [Ejercicios](./labs/lab1.html)
 
-<!--
 
 ### Lab 02 - Visualización 
   - [Ejercicios](./labs/lab2.html)
+  
+<!--
 
 ### Lab 03 - Transformación
   - [Ejercicios](./labs/lab3.html)
