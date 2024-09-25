@@ -152,7 +152,7 @@ class: center, middle, inverse
 
 ## Verbo `select`
 
-* En múltiples ocasiones tenemos conjutos de datos con miles de variables
+* En múltiples ocasiones tenemos conjuntos de datos con miles de variables
 
 * Nos puede interesar un subconjunto de las mismas
 
@@ -228,7 +228,7 @@ Las siguientes funciones son útiles
 
 - `contains("abc")`: nombres que contienen "abc"
 
-- `matches("(.)//1"`) : selecciona según expresiones regulares 
+- `matches("(.)\\1"`) : selecciona según expresiones regulares
 
 - `num_range("x", 1:3)`: selecciona x1, x2 y x3
 
@@ -377,7 +377,7 @@ Pasando la respuesta a `ggplot2`
 gapminder %>%
   filter(year == 2007) %>%
   ggplot(., aes(x = lifeExp, fill = continent)) + #<<
-  geom_histogram(bins = 100)
+  geom_density(alpha=0.5) + theme_minimal()
 ```
 
 ---
@@ -616,48 +616,6 @@ min_rank(x)
 cumsum(x)
 ```
 
----
-## Reto
-
-Calcula la proporción de países en cada continente, que en el año 1967 tenían esperanza de vida entre  0-10, 10-20, 20-30, etc.
---
-
-```{r}
-gapminder %>%
-  mutate(lifeExpDecade = lifeExp - lifeExp%%10) %>%
-  filter(year == 1967) %>%
-  count(continent, lifeExpDecade) %>%
-  group_by(continent) %>%
-  mutate(prop = n / sum(n)) 
-```
-
----
-## Reto
-
-Calcula la proporción de países en cada continente, que en el año 1967 tenían esperanza de vida entre  0-10, 10-20, 20-30, etc.
---
-
-```{r}
-
-gapminder %>%
-  mutate(lifeExpDecade = case_when(lifeExp >= 20 & lifeExp< 30 ~ '20',
-          lifeExp >= 30 & lifeExp< 40 ~ '30',
-          lifeExp >= 40 & lifeExp< 50 ~ '40',
-          lifeExp >= 50 & lifeExp< 60 ~ '50',
-          lifeExp >= 60 & lifeExp< 70 ~ '60',
-          lifeExp >= 70 & lifeExp< 80 ~ '70',
-          lifeExp >= 80 & lifeExp< 90 ~ '80',
-          lifeExp >= 90 & lifeExp< 100 ~ '90',
-          TRUE ~ '>100'
-          )) %>%
-  filter(year == 1967) %>%
-  count(continent, lifeExpDecade) %>%
-  group_by(continent) %>%
-  mutate(prop = n / sum(n)) 
-
-
-```
-
 
 ---
 class: center, middle, inverse
@@ -687,16 +645,6 @@ gapminder %>%
 
 * Cuenta: `n()`, `n_distinct()`
 
----
-## Resúmenes más útiles
-
-¿Recuerdas que és la mediana? ¿Y el percentil 25?
-
----
-
-class: center, middle, inverse
-
-## Transformación de datos: `group_by`
 
 
 ---
@@ -733,9 +681,12 @@ gapminder %>%
 ```
 
 **NOTA**: si hay valores ausentes, añadir `na.rm = TRUE`, e.g. `mean(x, na.rm = TRUE)`
+
 ---
 
 ## Agrupaciones por varias variables
+
+Fíjate que al hacer un summarise se deshace el agrupamiento según la última variable indicada en group_by
 
 ```{r}
 gapminder %>%
@@ -745,6 +696,80 @@ gapminder %>%
             min_gdpPercapita    = min(gdpPercap)
             ) %>% 
   filter(year %in% c(1967, 2007))
+```
+
+.
+---
+
+## Agrupaciones
+
+Para desagrupar completamente podemos usar `ungroup()`
+
+```{r}
+# Agrupamos por una columna
+gapminder_g <- gapminder %>% 
+  group_by(continent)
+
+
+gapminder_g %>% head(2)
+```
+
+---
+
+## Agrupaciones
+
+Para desagrupar completamente podemos usar `ungroup()`
+
+```{r}
+# Desagrupamos el dataframe
+gampminder_ng <- gapminder %>% 
+  ungroup()
+
+gampminder_ng %>% head(2)
+```
+
+
+
+---
+
+
+## Reto
+
+Para cada continente, calcula la proporción de países que en el año 1967 tenían esperanza de vida entre  0-10, 10-20, 20-30, etc.  en relación con el total de países del continente.
+
+
+```{r eval=FALSE}
+gapminder %>% filter(year == 1967) %>%
+  mutate(lifeExpDecade = lifeExp - lifeExp%%10) %>%
+  count(continent, lifeExpDecade) %>%
+  group_by(continent) %>%
+  mutate(prop = n / sum(n)) 
+```
+
+---
+## Reto
+
+Calcula la proporción de países en cada continente, que en el año 1967 tenían esperanza de vida entre  0-10, 10-20, 20-30, etc.
+
+```{r eval=FALSE}
+
+gapminder %>%
+  mutate(lifeExpDecade = case_when(lifeExp >= 20 & lifeExp< 30 ~ '20',
+          lifeExp >= 30 & lifeExp< 40 ~ '30',
+          lifeExp >= 40 & lifeExp< 50 ~ '40',
+          lifeExp >= 50 & lifeExp< 60 ~ '50',
+          lifeExp >= 60 & lifeExp< 70 ~ '60',
+          lifeExp >= 70 & lifeExp< 80 ~ '70',
+          lifeExp >= 80 & lifeExp< 90 ~ '80',
+          lifeExp >= 90 & lifeExp< 100 ~ '90',
+          TRUE ~ '>100'
+          )) %>%
+  filter(year == 1967) %>%
+  count(continent, lifeExpDecade) %>%
+  group_by(continent) %>%
+  mutate(prop = n / sum(n)) 
+
+
 ```
 
 ---

@@ -39,7 +39,6 @@ Cargamos los paquetes necesarios
 ```{r}
 library(gapminder)
 library(tidyverse)
-unique(gapminder$year)
 ```
 
 Filtramos las observaciones de los años 1957, 1967, 1977, 1987, 1997, 2007
