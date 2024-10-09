@@ -11,7 +11,7 @@
 
 
 
-<title>Lab 04 - Importación de datos</title>
+<title>Lab 3.1 - Importación de datos</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1640,7 +1640,7 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">Lab 04 - Importación de datos</h1>
+<h1 class="title toc-ignore">Lab 3.1 - Importación de datos</h1>
 
 </div>
 
@@ -1661,7 +1661,7 @@ nombre,edad,genero,fuma
 Pedro,29,hombre,no
 Ana,26,mujer,si&quot;</code></pre>
 <p>Lee los datos en un tibble. A continuación, guárdalos en formato csv
-dentro de una carpeta que se llama <code>data</code>. Una vez guardados,
+dentro de una carpeta que se llame <code>data</code>. Una vez guardados,
 vuelve a leerlos (esta vez desde el fichero). Finalmente, guárdalos de
 nuevo en formato excel.</p>
 </div>
@@ -1734,6 +1734,31 @@ el mensaje <code>&quot;La tasa de desempleo ha bajado del 10%&quot;</code>, de l
 contrario, se imprimirá
 <code>&quot;La tasa de desempleo se mantiente por encima del 10%&quot;</code></p></li>
 </ul>
+</div>
+<div id="ejercicio-7" class="section level2">
+<h2>Ejercicio 7</h2>
+<p>Weyland Yutani Manufacturing quiere realizar un análisis de costes.
+Para ello, se te proporciona un informe en Excel con los costes por
+región.</p>
+<ol style="list-style-type: decimal">
+<li><p>Lee el archivo Excel
+<strong>weyland_cost_results.xlsx</strong>.</p></li>
+<li><p>Notarás que la tabla tiene muchos valores NA y filas
+innecesarias, necesitamos hacer una limpieza:</p>
+<ul>
+<li><p>Existen filas que muestran subtotales de cada <code>region</code>
+(por ejemplo, “Central Total” o “East Total”) y de toda la compañía
+(“Grand Total”). Filtra el data frame para que no tenga estas filas de
+subtotales. Las filas con valores NA deben permanecer después de este
+filtrado. <em>Sugerencia:</em> Puedes utilizar la función
+<code>endsWith()</code> para filtrar estos datos.</p></li>
+<li><p>Ahora necesitamos llenar los valores NA. Ten en cuenta que la
+<code>region</code> es la misma que la fila anterior, por lo que
+necesitarás completar con el mismo valor que la fila superior de la fila
+en la que te encuentras. Investiga el uso de <code>fill</code> para este
+propósito.</p></li>
+</ul></li>
+</ol>
 </div>
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Lab 04 - Importación de datos"
+title: "Lab 3.1 - Importación de datos"
 output:
   html_document:
     css: ./ds_labs.css
@@ -42,7 +42,7 @@ Ana,26,mujer,si"
 ```
 
 
-Lee los datos en un tibble. A continuación, guárdalos en formato csv dentro de una carpeta que se llama `data`.
+Lee los datos en un tibble. A continuación, guárdalos en formato csv dentro de una carpeta que se llame `data`.
 Una vez guardados, vuelve a leerlos (esta vez desde el fichero).
 Finalmente, guárdalos de nuevo en formato excel.
 
@@ -110,5 +110,21 @@ Elabora un código que haga lo siguiente:
 * Si la tasa de desempleo más reciente es inferior a 10 % imprima el mensaje
 `"La tasa de desempleo ha bajado del 10%"`, de lo contrario, se imprimirá
 `"La tasa de desempleo se mantiente por encima del 10%"`
+
+
+
+## Ejercicio 7
+
+Weyland Yutani Manufacturing quiere realizar un análisis de costes. Para ello, se te proporciona un informe en Excel con los costes por región.
+
+1. Lee el archivo Excel **weyland_cost_results.xlsx**.
+2. Notarás que la tabla tiene muchos valores NA y filas innecesarias, necesitamos hacer una limpieza:
+
+    - Existen filas que muestran subtotales de cada `region` (por ejemplo, "Central Total" o "East Total") y de toda la compañía ("Grand Total"). Filtra el data frame para que no tenga estas filas de subtotales. Las filas con valores NA deben permanecer después de este filtrado. *Sugerencia:* Puedes utilizar la función `endsWith()` para filtrar estos datos.
+    
+    - Ahora necesitamos llenar los valores NA. Ten en cuenta que la `region` es la misma que la fila anterior, por lo que necesitarás completar con el mismo valor que la fila superior de la fila en la que te encuentras. Investiga el uso de `fill` para este propósito. 
+
+
+
 
 
