@@ -95,10 +95,11 @@ Bienvenido al sitio web de la asignatura de **Análisis y Explotación de la Inf
 ### Lab 3.1 - Importación
   - [Ejercicios](./labs/lab4.html)
 
-<!-- 
 
-### Lab 05 - Data Wrangling
+### Lab 3.2 - Data Wrangling
   - [Ejercicios](./labs/lab5.html)
+
+<!-- 
 
 
 ### Lab 06 - Strings, Factores y Fechas
