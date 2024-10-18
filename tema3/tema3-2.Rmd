@@ -170,6 +170,8 @@ table1 %>% mutate(rate = 10000 * cases / population)
 ---
 # `pivot_longer()`
 
+* Se usa cuando una variable está dispersa por varias columnas
+
 * Nombres de columnas son valores de variable
 
 ```{r}
@@ -356,9 +358,10 @@ knitr::include_graphics("img/relations_NYC.png")
 
 Dos tipos de llaves:
 
-* Primary Key: identifica unívocamente una observación en su propia tabla.
+* Primary Key: variable o conjunto de variables que identifica unívocamente una observación en su propia tabla.
 
-* Foreign Key: identifica unívocamente una observación en otra tabla.
+* Foreign Key: variable o conjunto de variables de una tabla que se corresponden con la Primary Key de otra tabla.
+
 
 * ¿Ejemplo en `nycflights13`?
 
@@ -403,7 +406,7 @@ flights_key %>%
 ---
 # Keys (Llaves)
 
-* Una *primary key* y su *foreign key* en otra table forman una **relación**.
+* Una *primary key* y su *foreign key* en otra tabla forman una **relación**.
 
 * Usualmente las relaciones son 1 a varios.
 

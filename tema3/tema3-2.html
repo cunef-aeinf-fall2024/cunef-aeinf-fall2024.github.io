@@ -4,7 +4,7 @@
     <title>Tema 3.2</title>
     <meta charset="utf-8" />
     <meta name="author" content="Roi Naveiro" />
-    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.25/header-attrs.js"></script>
     <link rel="stylesheet" href="ds_slides.css" type="text/css" />
   </head>
   <body>
@@ -91,7 +91,7 @@ table1
 ```
 ## # A tibble: 6 × 4
 ##   country      year  cases population
-##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 Afghanistan  1999    745   19987071
 ## 2 Afghanistan  2000   2666   20595360
 ## 3 Brazil       1999  37737  172006362
@@ -114,7 +114,7 @@ table2
 ```
 ## # A tibble: 12 × 4
 ##    country      year type            count
-##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
 ##  1 Afghanistan  1999 cases             745
 ##  2 Afghanistan  1999 population   19987071
 ##  3 Afghanistan  2000 cases            2666
@@ -143,7 +143,7 @@ table3
 ```
 ## # A tibble: 6 × 3
 ##   country      year rate             
-## * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
 ## 1 Afghanistan  1999 745/19987071     
 ## 2 Afghanistan  2000 2666/20595360    
 ## 3 Brazil       1999 37737/172006362  
@@ -166,7 +166,7 @@ table4a
 ```
 ## # A tibble: 3 × 3
 ##   country     `1999` `2000`
-## * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
+##   &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
 ## 1 Afghanistan    745   2666
 ## 2 Brazil       37737  80488
 ## 3 China       212258 213766
@@ -179,7 +179,7 @@ table4b
 ```
 ## # A tibble: 3 × 3
 ##   country         `1999`     `2000`
-## * &lt;chr&gt;            &lt;int&gt;      &lt;int&gt;
+##   &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 Afghanistan   19987071   20595360
 ## 2 Brazil       172006362  174504898
 ## 3 China       1272915272 1280428583
@@ -210,7 +210,7 @@ table1 %&gt;% mutate(rate = 10000 * cases / population)
 ```
 ## # A tibble: 6 × 5
 ##   country      year  cases population  rate
-##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
 ## 1 Afghanistan  1999    745   19987071 0.373
 ## 2 Afghanistan  2000   2666   20595360 1.29 
 ## 3 Brazil       1999  37737  172006362 2.19 
@@ -236,6 +236,8 @@ table1 %&gt;% mutate(rate = 10000 * cases / population)
 ---
 # `pivot_longer()`
 
+* Se usa cuando una variable está dispersa por varias columnas
+
 * Nombres de columnas son valores de variable
 
 
@@ -246,7 +248,7 @@ table4a
 ```
 ## # A tibble: 3 × 3
 ##   country     `1999` `2000`
-## * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
+##   &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
 ## 1 Afghanistan    745   2666
 ## 2 Brazil       37737  80488
 ## 3 China       212258 213766
@@ -273,7 +275,7 @@ table4a %&gt;% pivot_longer(c(`1999`, `2000`),
 ```
 ## # A tibble: 6 × 3
 ##   country     year   cases
-##   &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;
+##   &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;
 ## 1 Afghanistan 1999     745
 ## 2 Afghanistan 2000    2666
 ## 3 Brazil      1999   37737
@@ -306,7 +308,7 @@ table2
 ```
 ## # A tibble: 12 × 4
 ##    country      year type            count
-##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
 ##  1 Afghanistan  1999 cases             745
 ##  2 Afghanistan  1999 population   19987071
 ##  3 Afghanistan  2000 cases            2666
@@ -341,7 +343,7 @@ table2 %&gt;%
 ```
 ## # A tibble: 6 × 4
 ##   country      year  cases population
-##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 Afghanistan  1999    745   19987071
 ## 2 Afghanistan  2000   2666   20595360
 ## 3 Brazil       1999  37737  172006362
@@ -373,7 +375,7 @@ table3
 ```
 ## # A tibble: 6 × 3
 ##   country      year rate             
-## * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
 ## 1 Afghanistan  1999 745/19987071     
 ## 2 Afghanistan  2000 2666/20595360    
 ## 3 Brazil       1999 37737/172006362  
@@ -392,7 +394,7 @@ table3 %&gt;% separate(rate, into = c("cases", "population"))
 ```
 ## # A tibble: 6 × 4
 ##   country      year cases  population
-##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
 ## 1 Afghanistan  1999 745    19987071  
 ## 2 Afghanistan  2000 2666   20595360  
 ## 3 Brazil       1999 37737  172006362 
@@ -415,7 +417,7 @@ table3 %&gt;% separate(rate, into = c("cases", "population"), sep = "/")
 ```
 ## # A tibble: 6 × 4
 ##   country      year cases  population
-##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
 ## 1 Afghanistan  1999 745    19987071  
 ## 2 Afghanistan  2000 2666   20595360  
 ## 3 Brazil       1999 37737  172006362 
@@ -437,7 +439,7 @@ table3 %&gt;% separate(rate, into = c("cases", "population"), convert = TRUE)
 ```
 ## # A tibble: 6 × 4
 ##   country      year  cases population
-##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+##   &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;      &lt;int&gt;
 ## 1 Afghanistan  1999    745   19987071
 ## 2 Afghanistan  2000   2666   20595360
 ## 3 Brazil       1999  37737  172006362
@@ -541,9 +543,10 @@ Utilizaremos este conjunto de datos para aprender sobre datos relacionales. Cont
 
 Dos tipos de llaves:
 
-* Primary Key: identifica unívocamente una observación en su propia tabla.
+* Primary Key: variable o conjunto de variables que identifica unívocamente una observación en su propia tabla.
 
-* Foreign Key: identifica unívocamente una observación en otra tabla.
+* Foreign Key: variable o conjunto de variables de una tabla que se corresponden con la Primary Key de otra tabla.
+
 
 * ¿Ejemplo en `nycflights13`?
 
@@ -561,7 +564,7 @@ planes %&gt;%
 
 ```
 ## # A tibble: 0 × 2
-## # … with 2 variables: tailnum &lt;chr&gt;, n &lt;int&gt;
+## # ℹ 2 variables: tailnum &lt;chr&gt;, n &lt;int&gt;
 ```
 
 
@@ -605,13 +608,13 @@ flights_key %&gt;%
 
 ```
 ## # A tibble: 0 × 2
-## # … with 2 variables: key &lt;int&gt;, n &lt;int&gt;
+## # ℹ 2 variables: key &lt;int&gt;, n &lt;int&gt;
 ```
 
 ---
 # Keys (Llaves)
 
-* Una *primary key* y su *foreign key* en otra table forman una **relación**.
+* Una *primary key* y su *foreign key* en otra tabla forman una **relación**.
 
 * Usualmente las relaciones son 1 a varios.
 
@@ -1050,7 +1053,7 @@ flights %&gt;%
 ##  8 N534MQ    364
 ##  9 N542MQ    363
 ## 10 N531MQ    349
-## # … with 712 more rows
+## # ℹ 712 more rows
 ```
 
 ---
