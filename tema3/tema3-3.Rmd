@@ -219,8 +219,6 @@ x <- c("Cats", "Uñas Chung Lee", "Capital")
 str_view(x, "Le")
 ```
 
-**Pregunta**: diferencia entre `str_view` y `str_view_all`
-
 ---
 ## Strings: expresiones regulares
 
