@@ -1,5 +1,5 @@
 ---
-title: "Lab 06 - Strings, factores y fechas"
+title: "Lab 3.3 - Strings, factores y fechas"
 output:
   html_document:
     css: ./ds_labs.css

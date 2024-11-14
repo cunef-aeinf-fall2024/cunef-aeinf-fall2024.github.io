@@ -11,7 +11,7 @@
 
 
 
-<title>Lab 06 - Strings, factores y fechas</title>
+<title>Lab 3.3 - Strings, factores y fechas</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1640,7 +1640,7 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">Lab 06 - Strings, factores y fechas</h1>
+<h1 class="title toc-ignore">Lab 3.3 - Strings, factores y fechas</h1>
 
 </div>
 
@@ -1725,7 +1725,7 @@ importar datos sobre el precio de diferentes acciones.</p>
 sencillo:</p>
 <pre class="r"><code>prices  &lt;- tq_get(&quot;AMZN&quot;, get = &quot;stock.prices&quot;, from = &quot; 2000-01-01&quot;)
 prices </code></pre>
-<pre><code>## # A tibble: 6,110 × 8
+<pre><code>## # A tibble: 6,257 × 8
 ##    symbol date        open  high   low close    volume adjusted
 ##    &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ##  1 AMZN   2000-01-03  4.07  4.48  3.95  4.47 322352000     4.47
@@ -1738,7 +1738,7 @@ prices </code></pre>
 ##  8 AMZN   2000-01-12  3.39  3.40  3.15  3.18 216090000     3.18
 ##  9 AMZN   2000-01-13  3.25  3.36  3.16  3.30 208962000     3.30
 ## 10 AMZN   2000-01-14  3.34  3.43  3.20  3.21 137072000     3.21
-## # ℹ 6,100 more rows</code></pre>
+## # ℹ 6,247 more rows</code></pre>
 <p>Crea una visualización para que permita estudiar la variación del
 precio de apertura de la acción de AMZN en el tiempo. ¿En qué fechas se
 alcazan precios de apertura máximos y mínimos?</p>
