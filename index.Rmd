@@ -102,5 +102,5 @@ Bienvenido al sitio web de la asignatura de **Análisis y Explotación de la Inf
   - [Ejercicios](./labs/lab6.html)
 
 
-### Lab 07 - Modelos
+### Lab 4 - Modelos
   - [Ejercicios](./labs/lab7.html)
